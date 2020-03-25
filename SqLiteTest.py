@@ -1,0 +1,20 @@
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+
+cursor = conn.cursor()
+# cursor.execute('create table user (id varchar(20) primary key, name varchar(20))')
+# cursor.execute('insert into user (id, name) values(\'1\', \'aaaa\')')
+# print(cursor.rowcount)
+# cursor.execute('insert into user (id, name) values(\'2\', \'ddddd\')')
+# cursor.execute('insert into user (id, name) values(\'3\', \'eeeeee\')')
+# cursor.execute('insert into user (id, name) values(\'4\', \'fffffff\')')
+# cursor.execute('insert into user (id, name) values(\'5\', \'ggggggg\')')
+# cursor.execute('update user set name=\'ccccc\' where id=\'1\'')
+# cursor.execute('delete from user where id=\'3\'')
+cursor.execute('select * from user')
+values = cursor.fetchall()
+print(values)
+cursor.close()
+conn.commit()
+conn.close()
